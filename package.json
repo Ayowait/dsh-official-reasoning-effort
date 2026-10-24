@@ -1,0 +1,96 @@
+{
+  "name": "dsh-official-reasoning-effort",
+  "version": "0.3.1",
+  "description": "Official-style model + reasoning-effort control for the DeepSeek Harness composer. Always offers Off/Low/High/Max — rendered by the official picker — even when an upstream gateway declares no reasoning effort.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./plan": "./lib/plan.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/plan.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "screenshots.json",
+    "assets",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "src"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "reasoning-effort",
+    "official-reasoning-effort",
+    "reasoning-level",
+    "model-settings",
+    "llm-pi-ai",
+    "cordis",
+    "plugin-market"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayowait/dsh-official-reasoning-effort.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ayowait/dsh-official-reasoning-effort/issues"
+  },
+  "homepage": "https://github.com/Ayowait/dsh-official-reasoning-effort#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "node test/host.test.mjs && node test/client.test.mjs && node test/host-integration.test.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-settings": "*",
+    "@deepseek-ai/dsh-llm-pi-ai": "*",
+    "@deepseek-ai/dsh-api-remotes": "*",
+    "@deepseek-ai/dsh-api-session-controller": "*",
+    "@deepseek-ai/dsh-client-locale": "*",
+    "@deepseek-ai/dsh-client-runtime": "*",
+    "@deepseek-ai/dsh-client-ui-conversation": "*",
+    "@deepseek-ai/dsh-client-ui-model-selection": "*",
+    "@deepseek-ai/dsh-client-ui-slots": "*",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": { "optional": true },
+    "@deepseek-ai/dsh-settings": { "optional": true },
+    "@deepseek-ai/dsh-llm-pi-ai": { "optional": true },
+    "@deepseek-ai/dsh-api-remotes": { "optional": true },
+    "@deepseek-ai/dsh-api-session-controller": { "optional": true },
+    "@deepseek-ai/dsh-client-locale": { "optional": true },
+    "@deepseek-ai/dsh-client-runtime": { "optional": true },
+    "@deepseek-ai/dsh-client-ui-conversation": { "optional": true },
+    "@deepseek-ai/dsh-client-ui-model-selection": { "optional": true },
+    "@deepseek-ai/dsh-client-ui-slots": { "optional": true },
+    "react": { "optional": true }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-model-selection"
+      ]
+    }
+  }
+}
